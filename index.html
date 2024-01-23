@@ -278,6 +278,48 @@
                 width: 100%;
                 border-collapse: collapse;
             }
+
+            #footstepPause {
+                background: url("play.png"), rgba(0,0,0,0);
+                background-size: cover;
+                border: 0;
+                width: 50px;
+                height: 50px;
+                outline: none;
+            }
+
+            .side {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            #footstepSlider {
+                width: 60%;
+                appearance: none;
+                border-radius: 5px;
+                background-color: rgba(0, 0, 0, 0.3);
+                opacity: 0.8;
+                height: 7px;
+            }
+
+            #footstepSlider:hover {
+                opacity: 1;
+            }
+
+            #footstepSlider::-webkit-slider-thumb {
+                appearance: none;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                cursor: pointer;
+                background-color: rgb(209, 197, 160);
+                border: 1px solid rgb(166, 156, 126);
+            }
+
+            #sliderValue {
+                width: 2em;
+            }
         </style>
     </head>
     <body>
@@ -365,6 +407,11 @@
                         <p id="rollAvg">Average: 0m/s</p>
                     </div>
                     <div class="line"></div>
+                    <div class="side">
+                        <button id="footstepPause" onclick="toggleFootsteps();"></button>
+                        <input type="range" id="footstepSlider" min="0" max="4" value="1.7" step="0.1" oninput="changeFootstepSpeed();">
+                        <output for="footstepSlider" id="sliderValue">1.7m/s</output>
+                    </div>
                 </div>
                 <div class="b">
                     <div class="flex">
@@ -380,7 +427,7 @@
                 <div class="a">
                     <p class="heading">Smudge Timer</p>
                     <div class="line"></div>
-                    <p>By using an Incence on a ghost, you stop them from hunting for 90 seconds, however there are a few exceptions to this rule. You can use the timer below to determine if that is the case. Make sure that you start the timer (space) as you use the smudge. This will still work even if you smudge outside of a hunt. No ghost can hunt before 60 seconds has passed since it was smudged.</p>
+                    <p>By using an Incence on a ghost, you stop them from hunting for 90 seconds, however there are a few exceptions to this rule. You can use the timer below to determine if that is the case. Make sure that you start the timer (space) as you use the smudge. This will NOT work if you use your smudge outside of a hunt. No ghost can hunt before 60 seconds has passed since it was smudged.</p>
                     <br>
                     <table class="table">
                         <tr>
@@ -711,6 +758,14 @@
         var otherTimeText = document.getElementById("otherTimeText");
         var spiritTimeText = document.getElementById("spiritTimeText");
 
+        var footstepSound = document.createElement("audio");
+        footstepSound.setAttribute("src", "footstep.mp3");
+        document.body.appendChild(footstepSound);
+
+        var footstepSpeed = 1.7;
+        var footstepInterval;
+        var footstepToggle = false;
+
         leftArrow.addEventListener('mousedown', function (event) {
             if (currentPage - 1 >= 0) {
                 currentPage--;
@@ -879,6 +934,12 @@
             {evidence: "losEvidence", state: 0, list: losGhosts}
         ];
 
+        document.getElementById("footstepPause").addEventListener("keydown", (event) => {
+            if (event.key === " ") {
+                event.preventDefault();
+            }
+        });
+
         document.getElementById("timerButton").addEventListener("keydown", (event) => {
             if (event.key === " ") {
                 event.preventDefault();
@@ -910,10 +971,10 @@
             // When click space
             if (event.keyCode == 32 && currentPage == 1) {
                 // Instance mps
-                instance();
+                
 
                 // Rolling Average mps (last 5)
-                rollAvgDisplay.innerText = rollingAverage(mps);
+                rollAvgDisplay.innerText = instance() + " | " + rollingAverage(mps);
 
                 // Average mps (total avg.)
                 average(mps);
@@ -938,6 +999,28 @@
         document.addEventListener("contextmenu", (event) => {
             event.preventDefault();
         });
+
+        function toggleFootsteps() {
+            if (footstepToggle) {
+                clearInterval(footstepInterval);
+            } else {
+                var ms = 882.352941176 / footstepSpeed;
+                footstepInterval = setInterval(playSingleFootstep, ms);
+            }
+            footstepToggle = !footstepToggle;
+        }
+
+        function playSingleFootstep() {
+            footstepSound.currentTime = 0;
+            footstepSound.play();
+        }
+
+        function changeFootstepSpeed() {
+            footstepSpeed = document.getElementById('footstepSlider').value;
+            document.getElementById('sliderValue').value = footstepSpeed + "m/s";
+            clearInterval(footstepInterval);
+            footstepToggle = false;
+        }
 
         function crossoutSpeed() {            
             var list = allGhosts.filter(element => !listNames.includes(element));
@@ -1124,11 +1207,17 @@
                 ctx.lineTo(points[i].x, points[i].y);
             }
             ctx.stroke();
+            ctx.beginPath();
+            ctx.strokeStyle = "lime";
+            var y = ctx.canvas.height - (rollAvg * ctx.canvas.height / 5);
+            ctx.moveTo(0, y);
+            ctx.lineTo(ctx.canvas.width, y);
+            ctx.stroke();
         }
 
         function instance() {
             var diff = Date.now() - lastTime;
-            mps = (60000 / 68) / diff
+            mps = 882.352941176 / diff;
             mps *= 100;
             mps = Math.round(mps) / 100;
             lastTime = Date.now();
