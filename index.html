@@ -765,6 +765,7 @@
         var footstepSpeed = 1.7;
         var footstepInterval;
         var footstepToggle = false;
+        var footstepPause = document.getElementById("footstepPause");
 
         leftArrow.addEventListener('mousedown', function (event) {
             if (currentPage - 1 >= 0) {
@@ -934,7 +935,7 @@
             {evidence: "losEvidence", state: 0, list: losGhosts}
         ];
 
-        document.getElementById("footstepPause").addEventListener("keydown", (event) => {
+        footstepPause.addEventListener("keydown", (event) => {
             if (event.key === " ") {
                 event.preventDefault();
             }
@@ -970,10 +971,7 @@
         document.addEventListener("keydown", function (event) {
             // When click space
             if (event.keyCode == 32 && currentPage == 1) {
-                // Instance mps
-                
-
-                // Rolling Average mps (last 5)
+                // Instance mps & Rolling Average mps (last 5)
                 rollAvgDisplay.innerText = instance() + " | " + rollingAverage(mps);
 
                 // Average mps (total avg.)
@@ -1003,9 +1001,11 @@
         function toggleFootsteps() {
             if (footstepToggle) {
                 clearInterval(footstepInterval);
+                footstepPause.style.backgroundImage = "url('play.png')";
             } else {
                 var ms = 882.352941176 / footstepSpeed;
                 footstepInterval = setInterval(playSingleFootstep, ms);
+                footstepPause.style.backgroundImage = "url('pause.png')";
             }
             footstepToggle = !footstepToggle;
         }
