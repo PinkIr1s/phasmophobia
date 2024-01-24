@@ -145,7 +145,7 @@
 
             .ghostDiv {
                 display: grid;
-                height: 100%;
+                height: 90%;
                 grid-template-columns: 1fr 1fr 1fr;
             }
 
@@ -166,13 +166,14 @@
                 height: 0;
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                margin-bottom: 10px;         
+                align-items: center;         
                 background-size: 100% 100%;
+                margin-bottom: 10px;
             }
 
             .sanityPercent {
                 font-size: 110%;
+                margin: 0;
             }
 
             .ghostContainer {
@@ -283,6 +284,10 @@
             .ghostTable {
                 width: 100%;
                 border-collapse: collapse;
+            }
+
+            .timeText {
+                visibility: hidden;
             }
 
             #footstepPause {
@@ -463,11 +468,11 @@
                         </div>
                     </div>
                     <br>
-                    <p>Can be:</p>
+                    <p id="canBeText" class="timeText">Can be:</p>
                     <div class="tabbed">
-                        <p id="demonTimeText" class="timeText"></p>
-                        <p id="otherTimeText" class="timeText"></p>
-                        <p id="spiritTimeText" class="timeText"></p>
+                        <p id="demonTimeText" class="timeText">- Demon</p>
+                        <p id="otherTimeText" class="timeText">- Other Ghosts</p>
+                        <p id="spiritTimeText" class="timeText">- Spirit</p>
                     </div>
                 </div>
                 <div class="b">
@@ -761,6 +766,7 @@
 
         var listNames;
 
+        var canBeText = document.getElementById("canBeText");
         var demonTimeText = document.getElementById("demonTimeText");
         var otherTimeText = document.getElementById("otherTimeText");
         var spiritTimeText = document.getElementById("spiritTimeText");
@@ -1042,13 +1048,14 @@
             time = Date.now() - startTime;
             time += pauseTime;
             if (time / 1000 > 60) {
-                demonTimeText.innerText = "- Demon";
+                canBeText.style.visibility = "visible";
+                demonTimeText.style.visibility = "visible";
             }
             if (time / 1000 > 90) {
-                otherTimeText.innerText = "- Other Ghosts";
+                otherTimeText.style.visibility = "visible";
             }
             if (time / 1000 > 180) {
-                spiritTimeText.innerText = "- Spirit";
+                spiritTimeText.style.visibility = "visible";
             }
             var minutes = Math.floor(time / (1000 * 60));
             var seconds = Math.floor((time % (1000 * 60)) / 1000);
@@ -1083,9 +1090,11 @@
             timerState = false;
             timerButton.innerText = "Start";
             pauseTime = 0;
-            demonTimeText.innerText = "";
-            otherTimeText.innerText = "";
-            spiritTimeText.innerText = "";
+            
+            canBeText.style.visibility = "hidden";
+            demonTimeText.style.visibility = "hidden";
+            otherTimeText.style.visibility = "hidden";
+            spiritTimeText.style.visibility = "hidden";
         }
 
         function blurb(ghost) {
