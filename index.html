@@ -1034,6 +1034,7 @@
             footstepSpeed = document.getElementById('footstepSlider').value;
             document.getElementById('sliderValue').value = footstepSpeed + "m/s";
             clearInterval(footstepInterval);
+            footstepPause.style.backgroundImage = "url('play.png')";
             footstepToggle = false;
         }
 
