@@ -86,7 +86,7 @@ var blurbs = [
     {
         ghost: "The Twins",
         evidence: ["EMF Level 5", "Spirit Box", "Freezing Temps"],
-        text: "The Twins can interact with the environment at the exact same time, you can see this on the Activiy Monitor if it goes up twice in one tick, making a curve-like shape."
+        text: "The Twins can interact with the environment at the exact same time, you can see this on the Activity Monitor if it goes up twice in one tick, making a curve-like shape. Keep in mind that this is not a guaruntee that the ghost is The Twins, because other ghosts can do this on occasion. <br> <img src='twinteractions.jpg' style='width: 100%;'> <br> Also, The Twins have two different movement speeds while hunting (1.5m/s / 1.9m/s) chosen randomly."
     },
     {
         ghost: "Raiju",
