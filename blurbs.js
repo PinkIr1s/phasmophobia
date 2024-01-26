@@ -66,7 +66,7 @@ var blurbs = [
     {
         ghost: "Hantu",
         evidence: ["Ultraviolet", "Ghost Orb", "Freezing Temps"],
-        text: "Hantus cannot turn off the fuse box and are twice as likely to turn it off. They force Freezing Temps and are faster in the cold."
+        text: "Hantus cannot turn off the fuse box and are twice as likely to turn it off. They force Freezing Temps and are faster in the cold. Also, when hunting while the breaker is off, Hantus will breathe out cold breaths of mist."
     },
     {
         ghost: "Goryo",
@@ -96,7 +96,7 @@ var blurbs = [
     {
         ghost: "Obake",
         evidence: ["EMF Level 5", "Ultraviolet", "Ghost Orb"],
-        text: "The Obake has a 1 in 6 chance (~16.7%) to leave 6 fingered hand prints and double fingerprints on light switches. They only have a 75% chance to leave ultraviolet evidence on valid surfaces when they interact, rather than the usual 100%. "
+        text: "The Obake has a 1 in 6 chance (~16.7%) to leave 6 fingered hand prints and double fingerprints on light switches. They only have a 75% chance to leave ultraviolet evidence on valid surfaces when they interact, rather than the usual 100%. <br><br> Obake also have a very recognisable trait when hunting. Once per hunt, they will blink into a different ghost model and then back."
     },
     {
         ghost: "The Mimic",
@@ -106,7 +106,7 @@ var blurbs = [
     {
         ghost: "Moroi",
         evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"],
-        text: "Moroi get faster as the average sanity decreases. They move very fast at 0% sanity. <br><br> <table class='ghostTable'><tr><th>Average Sanity %</th><th>Ghost Speed</th></tr><tr class='tableDark'><td>&ge; 45%</td><td>1.5m/s</td></tr><tr><td>10%-45%</td><td>1.5m/s - 2m/s</td></tr><tr class='tableDark'><td>&lt;10%</td><td>2.25m/s</td></tr></table>"
+        text: "Moroi get faster as the average sanity decreases. They move very fast at 0% sanity. <br><br> <table class='ghostTable'><tr><th>Average Sanity %</th><th>Ghost Speed</th></tr><tr class='tableDark'><td>&ge; 45%</td><td>1.5m/s</td></tr><tr><td>30%-45%</td><td>1.5m/s - 1.75m/s</td></tr><tr class='tableDark'><td>10%-30%</td><td>1.75m/s - 2m/s</td></tr><tr><td>&lt;10%</td><td>2.25m/s</td></tr></table>"
     },
     {
         ghost: "Deogen",
@@ -116,6 +116,6 @@ var blurbs = [
     {
         ghost: "Thaye",
         evidence: ["Ghost Orb", "Ghost Writing", "D.O.T.S Projector"],
-        text: "Thayes age over the course of the contract, they start fast and active and become slow and inactive over time."
+        text: "Thayes age over the course of the contract, they start fast and active and become slow and inactive over time. They attempt to age every 1-2 minutes, it will gain 1 age (scale of 1-10) as long as there is a player in the same room as it when it attempts to age. If there isn't, it will attempt again after 30 seconds."
     }
 ];
