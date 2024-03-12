@@ -1,0 +1,356 @@
+@font-face {
+    font-family: "Lazy Dog";
+    src: url('lazy_dog.ttf') format('truetype');
+}
+
+body {
+    height: 100dvh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("background.png");
+    background-size: cover;
+    font-family: "Lazy Dog", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    user-select: none;
+}
+
+.a {
+    display: flex;
+    width: 23vw;
+    flex-direction: column;
+    font-size: 110%;
+    
+}
+
+.b {
+    width: 23vw;
+    color: black;
+}
+
+.heading {
+    font-size: 160%;
+}
+
+.subheading {
+    font-size: 130%;
+    text-align: center;
+}
+
+.headingB {
+    font-size: 120%;
+}
+
+p {
+    margin: 0.5vh 0;
+}
+
+#canvas {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid white;
+    width: 300px;
+    height: 200px;
+}
+
+#journal {
+    width: 60vw;
+    height: 45.7vw;
+    box-sizing: border-box;
+    padding-left: 4vw;
+    padding-top: 4vw;
+    background-image: url("journal.png");
+    background-size: cover;
+    overflow: hidden;
+}
+
+.page {
+    position: absolute;
+    display: flex;
+    gap: 5vw;
+}
+
+#leftArrow {
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+    background-image: url("left_arrow.png");
+    background-size: cover;
+    cursor: pointer;
+}
+
+#rightArrow {
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    background-image: url("right_arrow.png");
+    background-size: cover;
+    cursor: pointer;
+}
+
+.line {
+    width: 100%;
+    border-top: 3px solid black;
+    margin: 10px 0;
+}
+
+.evidence {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.flexEvidence {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    cursor: pointer;
+    margin: 1px 0;
+    
+}
+
+.evidenceText {
+    font-size: 120%;
+}
+
+.checkbox {
+    margin-right: 10px;
+    width: 25px;
+}
+
+.crossout {
+    position: absolute;
+    margin-left: 20px;
+    width: inherit;
+    height: inherit;
+}
+
+.centred {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#rollAvg {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+#ghostDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ghostDiv {
+    display: grid;
+    height: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ghost {
+    font-size: 120%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;                
+    background-size: 100% 100%;
+}
+
+.ghostSanity {
+    font-size: 120%;
+    width: 100%;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;         
+    background-size: 100% 100%;
+    margin-bottom: 10px;
+}
+
+.sanityPercent {
+    font-size: 110%;
+    margin: 0;
+}
+
+.ghostContainer {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column;
+}
+
+.ghost {
+    font-size: 120%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;                
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    font-family: "Lazy Dog", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: transparent;
+    font-size: large;
+    padding: 2px 4px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#evidenceTab {
+    margin-left: -10px;
+    margin-top: -48px;
+}
+
+#footstepTab {
+    margin-left: 72px;
+    margin-top: -48px;
+}
+
+#smudgeTab {
+    margin-left: 164px;
+    margin-top: -48px;
+}
+
+.tab {                
+    position: absolute;
+    font-size: 125%;
+    cursor: pointer;
+}
+
+.timerBox {
+    width: 80%;
+    border: 3px solid rgba(0,0,0,0.8);
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.timerButton {
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    width: 3.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: rgba(255, 228, 196, 0.5);
+    font-family: "Lazy Dog", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+.timerButton:active {
+    background-color: rgba(210, 188, 160, 0.5);
+}
+
+.timerText {
+    font-size: 110%;
+}
+
+th {
+    text-align: left;
+}
+
+.tableDark {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.table {
+    border-collapse: collapse;
+}
+
+.tabbed {
+    padding-left: 50px;
+}
+
+.ghostTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.timeText {
+    visibility: hidden;
+}
+
+#footstepPause {
+    background: url("play.png"), rgba(0,0,0,0);
+    background-size: cover;
+    border: 0;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+}
+
+.side {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#footstepSlider {
+    width: 60%;
+    appearance: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0.8;
+    height: 7px;
+}
+
+#footstepSlider:hover {
+    opacity: 1;
+}
+
+#footstepSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgb(209, 197, 160);
+    border: 1px solid rgb(166, 156, 126);
+}
+
+#sliderValue {
+    width: 2em;
+}
+
+.input {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5px;
+    padding-left: 5px;
+    outline: none;
+    font-family: "Lazy Dog", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 2.5em;
+    height: 1.3em;
+    font-size: 1.1em;
+    padding-bottom: 0px;
+}
+
+.clickText:hover {
+    cursor: pointer;
+}
+
+.clickText {
+    font-size: 25.6px;
+}
+
+.smallGap {
+    width: 20px;
+}
