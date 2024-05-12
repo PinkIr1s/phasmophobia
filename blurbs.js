@@ -56,7 +56,7 @@ var blurbs = [
     {
         ghost: "Oni",
         evidence: ["EMF Level 5", "Freezing Temps", "D.O.T.S Projector"],
-        text: "The Oni cannot create the airball hiss event, keep in mind that there is a similar event in which the ghost walks toward you and hisses, but that doesn't count."
+        text: "The Oni cannot create the airball hiss event, keep in mind that there is a similar event in which the ghost walks toward you and hisses, but that doesn't count. \n \n They are much more visible during hunts, rarely turning invisible. They also tend to do Events very soon after starting the round."
     },
     {
         ghost: "Yokai",
@@ -66,12 +66,12 @@ var blurbs = [
     {
         ghost: "Hantu",
         evidence: ["Ultraviolet", "Ghost Orb", "Freezing Temps"],
-        text: "Hantus cannot turn off the fuse box and are twice as likely to turn it off. They force Freezing Temps and are faster in the cold. Also, when hunting while the breaker is off, Hantus will breathe out cold breaths of mist."
+        text: "Hantus cannot turn on the fuse box and are twice as likely to turn it off. They force Freezing Temps and are faster in the cold. Also, when hunting while the breaker is off, Hantus will breathe out cold breaths of mist."
     },
     {
         ghost: "Goryo",
         evidence: ["EMF Level 5", "Ultraviolet", "D.O.T.S Projector"],
-        text: "The Goryo doesn't roam very much and cannot change rooms."
+        text: "The Goryo doesn't roam very much and cannot change rooms. \n \n They force D.O.T.S Projector evidence, however it can only be seen on camera and they don't show themselves on D.O.T.S if a player is nearby."
     },
     {
         ghost: "Myling",
@@ -81,7 +81,7 @@ var blurbs = [
     {
         ghost: "Onryo",
         evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"],
-        text: "For Onryos, Firelights work similarly to crucifixes. If a firelight is lit, it will prevent an Onryo from hunting, but only the first two times. After it blows out the third Firelight, it will initiate a hunt."
+        text: "For Onryos, Firelights work similarly to crucifixes. If a firelight is lit, it will prevent an Onryo from hunting, but only the first two times. After every third Firelight blown out, it will initiate a hunt. "
     },
     {
         ghost: "The Twins",
@@ -91,7 +91,7 @@ var blurbs = [
     {
         ghost: "Raiju",
         evidence: ["EMF Level 5", "Ghost Orb", "D.O.T.S Projector"],
-        text: "Raiju speed up near turned on electronics. The hunt sanity threshold is increased to 65%."
+        text: "Raiju speed up near turned on electronics. Their hunt sanity threshold is increased to 65% when there is at least one piece of turned on electronic equipment nearby. They can also disrupt electronic equipment from a range of 15m rather than the usual 10m during events or hunts. It is only affected by electronics brought in from the van that are actively on, including when held by a player (e.g. T1 D.O.T.S or Headgear)"
     },
     {
         ghost: "Obake",
@@ -106,7 +106,7 @@ var blurbs = [
     {
         ghost: "Moroi",
         evidence: ["Spirit Box", "Ghost Writing", "Freezing Temps"],
-        text: "Moroi get faster as the average sanity decreases. They move very fast at 0% sanity. <br><br> <table class='ghostTable'><tr><th>Average Sanity %</th><th>Ghost Speed</th></tr><tr class='tableDark'><td>&ge; 45%</td><td>1.5m/s</td></tr><tr><td>30%-45%</td><td>1.5m/s - 1.75m/s</td></tr><tr class='tableDark'><td>10%-30%</td><td>1.75m/s - 2m/s</td></tr><tr><td>&lt;10%</td><td>2.25m/s</td></tr></table>"
+        text: "Moroi get faster as the average sanity decreases. They move very fast at 0% sanity. <br><br> <table class='ghostTable'><tr><th>Average Sanity %</th><th>Ghost Speed</th></tr><tr class='tableDark'><td>&ge; 45%</td><td>1.5m/s</td></tr><tr><td>45%-30%</td><td>1.75m/s - 1.5m/s</td></tr><tr class='tableDark'><td>30%-10%</td><td>2m/s - 1.75m/s</td></tr><tr><td>&lt;10%</td><td>2.25m/s</td></tr></table>"
     },
     {
         ghost: "Deogen",
